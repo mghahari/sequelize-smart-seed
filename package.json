@@ -1,0 +1,17 @@
+{
+  "name": "sequelize-smart-seed",
+  "version": "1.0.0",
+  "description": "Run seed:all without duplicates",
+  "main": "index.js",
+  "keywords": [
+    "sequelize",
+    "seed",
+    "duplicate"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mojighahar/sequelize-smart-seed.git"
+  },
+  "author": "mojighahar <mojighahar@gmail.com> (https://gitiserver.com)",
+  "license": "ISC"
+}
