@@ -1,6 +1,6 @@
 {
   "name": "sequelize-smart-seed",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Run seed:all without duplicates",
   "main": "index.js",
   "keywords": [
