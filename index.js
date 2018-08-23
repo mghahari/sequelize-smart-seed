@@ -1,4 +1,4 @@
-async function smartSeed(model, data, keys = ['id']) {
+async function smartSeed(model, data, overwrite = true, keys = ['id']) {
   var dbData = await model.all()
   var create = []
   var update = []
@@ -7,7 +7,7 @@ async function smartSeed(model, data, keys = ['id']) {
     for(var i = 0, dbItem; dbItem = dbData[i]; i++) {
       if(equals(item, dbItem, keys)) {
         finded = true
-        if(changed(item, dbItem)) {
+        if(overwrite && changed(item, dbItem)) {
           update.push(item)
         }
       }
@@ -21,11 +21,13 @@ async function smartSeed(model, data, keys = ['id']) {
     await model.create(item)
   }
 
-  for(var i = 0; item = update[i]; i++) {
-    var where = generateWhere(item, keys)
-    await model.update(item, {
-      where: where
-    })
+  if(overwrite) {
+    for(var i = 0; item = update[i]; i++) {
+      var where = generateWhere(item, keys)
+      await model.update(item, {
+        where: where
+      })
+    }
   }
 }
 
