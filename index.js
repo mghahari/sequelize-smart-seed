@@ -1,5 +1,5 @@
 async function smartSeed(model, data, overwrite = true, keys = ['id']) {
-  var dbData = await model.all()
+  var dbData = await model.unscoped().findAll()
   var create = []
   var update = []
   data.forEach((item) => {
